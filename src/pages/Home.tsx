@@ -14,7 +14,7 @@ const Home: React.FC = () => {
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
+          </IonToolbar> 
         </IonHeader>
         Testing Now
         <ExploreContainer />
@@ -22,5 +22,5 @@ const Home: React.FC = () => {
     </IonPage>
   );
 };
-
+// In the tutorial lines 13 to 18 inclusive are removed.
 export default Home;
