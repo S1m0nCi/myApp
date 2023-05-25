@@ -1,5 +1,5 @@
 {
-  "name": "myApp",
+  "name": "my-app",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -21,6 +21,7 @@
     "@capacitor/status-bar": "5.0.2",
     "@ionic/react": "^7.0.0",
     "@ionic/react-router": "^7.0.0",
+    "@types/aria-query": "^5.0.1",
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
     "ionicons": "^7.0.0",
