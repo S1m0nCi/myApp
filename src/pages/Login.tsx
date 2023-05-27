@@ -1,11 +1,15 @@
-import { IonCard, IonCardContent, IonContent, IonFooter, IonHeader, IonInput, IonPage, IonTitle, IonToolbar, IonButton, IonIcon } from '@ionic/react';
+import { IonCard, IonCardContent, IonContent, IonFooter, IonHeader, IonInput, IonPage, IonTitle, IonToolbar, IonButton, IonIcon, useIonRouter } from '@ionic/react';
 import React from 'react';   
 import { logInOutline, personCircleOutline } from 'ionicons/icons'
+import bikemoney from '../assets/bike-money.png'
 
 const Login: React.FC = () => {
+  const router = useIonRouter()
+
   const doLogin = (event: any) => {
     event.preventDefault()
     console.log('doLogin') // Fake login
+    // router.push('/home', 'root')
   } 
   return (
     <IonPage>
@@ -15,7 +19,8 @@ const Login: React.FC = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent className="ion-padding">
+      <IonContent scrollY={false}>
+        <img src={bikemoney} alt='Money Man Bike' width={ '50%' } />
         <IonCard>
           <IonCardContent>
             <form onSubmit={doLogin}> {/*type='email' tells the native OS 
