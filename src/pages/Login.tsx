@@ -1,17 +1,27 @@
 import { IonCard, IonCardContent, IonContent, IonFooter, IonHeader, IonInput, IonPage, IonTitle, IonToolbar, IonButton, IonIcon, useIonRouter } from '@ionic/react';
-import React from 'react';   
+import React, { useState } from 'react';   
 import { logInOutline, personCircleOutline } from 'ionicons/icons'
 import bikemoney from '../assets/bike-money.png'
+import Intro from '../components/Intro';
 
 const Login: React.FC = () => {
   const router = useIonRouter()
-
+  const [introSeen, setIntroSeen] = useState(false)
   const doLogin = (event: any) => {
     event.preventDefault()
     console.log('doLogin') // Fake login
     // router.push('/home', 'root')
   } 
+
+  const finishIntro = async () => {
+    console.log('FINISHED')
+  }
+  
   return (
+    <>
+    {!introSeen ? (
+      <Intro onFinish={finishIntro}/>
+    ) : (
     <IonPage>
       <IonHeader>
         <IonToolbar color={'success'}>
@@ -44,6 +54,8 @@ const Login: React.FC = () => {
         <IonToolbar>.</IonToolbar>
       </IonFooter>
     </IonPage>
+    )}
+    </>
   );
 };
 
