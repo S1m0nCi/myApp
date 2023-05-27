@@ -17,14 +17,14 @@ const SwiperButtonNext = ({ children }: any) => {
   return <IonButton onClick={() => swiper.slideNext()}> {children} </IonButton>
 }
 
-const Intro: React.FC<ContainerProps> = () => {
+const Intro: React.FC<ContainerProps> = ({ onFinish }) => {
 
   return (
     <Swiper>
       <SwiperSlide>
         <img src={salon} alt="Intro 1"/>
         <IonText>
-          The greatest app of all time.
+          <h3>The greatest app of all time.</h3>
         </IonText>
         <SwiperButtonNext>Next</SwiperButtonNext>
       </SwiperSlide>
@@ -32,7 +32,7 @@ const Intro: React.FC<ContainerProps> = () => {
       <SwiperSlide>
         <img src={chair} alt="Intro 2"/>
         <IonText>
-          The greatest app of all time.
+          <h3>The greatest app of all time.</h3>
         </IonText>
         <SwiperButtonNext>Next</SwiperButtonNext>
       </SwiperSlide>
@@ -40,9 +40,9 @@ const Intro: React.FC<ContainerProps> = () => {
       <SwiperSlide>
         <img src={clipper} alt="Intro 3"/>
         <IonText>
-          The greatest app of all time.
+          <h3>The greatest app of all time.</h3>
         </IonText>
-        <SwiperButtonNext>Next</SwiperButtonNext>
+        <IonButton onClick= {() => onFinish()}>Finish</IonButton>
       </SwiperSlide>
 
     </Swiper>

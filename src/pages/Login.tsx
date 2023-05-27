@@ -14,9 +14,10 @@ const Login: React.FC = () => {
   } 
 
   const finishIntro = async () => {
-    console.log('FINISHED')
+    console.log('FINISHED');
+    setIntroSeen(true);
   }
-  
+
   return (
     <>
     {!introSeen ? (
