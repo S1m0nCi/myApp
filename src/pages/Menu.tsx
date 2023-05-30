@@ -1,9 +1,9 @@
-import { IonContent, IonHeader, IonItem, IonMenu, IonMenuToggle, IonPage, IonRouterOutlet, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonMenu, IonMenuButton, IonMenuToggle, IonPage, IonRouterOutlet, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import{ Redirect, Route } from 'react-router'
 import Settings from './Settings';
 import List from './List';
-import { homeOutline, newspaperOutline } from 'ionicons/icons';
+import { homeOutline, logOutOutline, newspaperOutline } from 'ionicons/icons';
 
 const Menu: React.FC = () => {
   const paths = [
@@ -14,24 +14,33 @@ const Menu: React.FC = () => {
 
   return (
     <IonPage>
+      <IonSplitPane contentId='main' when='md'>
         <IonMenu contentId='main'>
           <IonHeader>
-            <IonToolbar>
+            <IonToolbar color={'secondary'}>
+              <IonButtons slot='start'>
+                <IonMenuButton />
+              </IonButtons>
               <IonTitle>
                 Menu
               </IonTitle>
             </IonToolbar>
           </IonHeader>
           <IonContent className='ion-padding'>
-            {paths.map((path, index) => (
-              <IonMenuToggle>
-                <IonItem routerLink={path.url} key={index} routerDirection="none">
-                  {IonItem.name}
+            {paths.map((item, index) => (
+              <IonMenuToggle key={index} autoHide={false}>
+                <IonItem detail={false} routerLink={item.url} key={index} routerDirection="none">
+                  <IonIcon slot='start' icon={item.icon} />
+                  {item.name}
                 </IonItem>
               </IonMenuToggle>
             ))}
-
-            
+            <IonMenuToggle autoHide={false}>
+                <IonButton expand='full' routerLink='/' routerDirection="root">
+                  <IonIcon slot='start' icon={logOutOutline} />
+                  Logout
+                </IonButton>
+              </IonMenuToggle>
           </IonContent>
         </IonMenu>
 
@@ -42,6 +51,7 @@ const Menu: React.FC = () => {
             <Redirect to="/app/list" />
           </Route>
         </IonRouterOutlet>
+      </IonSplitPane>
     </IonPage>
   );
 };
