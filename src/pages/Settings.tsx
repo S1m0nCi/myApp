@@ -1,6 +1,6 @@
 import { IonButtons, IonContent, IonHeader, IonIcon, IonLabel, IonMenuButton, IonPage, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
-import { Route } from 'react-router';
+import { Redirect, Route } from 'react-router';
 import Tab2 from './Tab2';
 import Tab1 from './Tab1';
 import { atCircle, ellipse, triangle } from 'ionicons/icons';
@@ -16,13 +16,17 @@ const Settings: React.FC = () => {
         </IonTabButton>
         <IonTabButton tab="tab2" href='/app/settings/tab2'>
           <IonIcon icon={ellipse}/>
-          <IonLabel>Tab 1</IonLabel>
+          <IonLabel>Tab 2</IonLabel>
         </IonTabButton>
       </IonTabBar>
 
       <IonRouterOutlet>
         <Route path="app/settings/tab1" component={Tab1}/>
         <Route path="app/settings/tab2" component={Tab2}/>
+
+        <Route exact path="/app/settings">
+          <Redirect to="/app/settings/tab1"/>
+        </Route>
       </IonRouterOutlet>
     </IonTabs>
   );
